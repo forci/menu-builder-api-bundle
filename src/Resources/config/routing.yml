@@ -1,0 +1,5 @@
+forci_menu_builder_api_menu_get:
+    path:        /{_locale}/{id}/get.json
+    defaults:
+        _controller: ForciMenuBuilderApiBundle:Menu:get
+        _format: json

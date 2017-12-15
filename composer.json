@@ -1,0 +1,30 @@
+{
+    "name": "wucdbm/menu-builder-api-bundle",
+    "type": "symfony-bundle",
+    "description": "A simple API for the menu builder",
+    "keywords": ["wucdbm", "menu", "builder", "menu builder", "symfony2"],
+    "authors": [
+        {
+            "name": "Martin Kirilov",
+            "email": "wucdbm@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.3",
+        "symfony/symfony": "~3.0|4.0",
+        "forci/menu-builder-bundle": "dev-master"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.8",
+        "wucdbm/php-cs-fixers": "~0.2"
+    },
+    "autoload": {
+        "psr-4": { "Forci\\Bundle\\MenuBuilderApi\\": "src" }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "dev",
+    "license": "GPL-3.0"
+}
