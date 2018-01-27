@@ -1,5 +1,5 @@
 {
-    "name": "wucdbm/menu-builder-api-bundle",
+    "name": "forci/menu-builder-api-bundle",
     "type": "symfony-bundle",
     "description": "A simple API for the menu builder",
     "keywords": ["wucdbm", "menu", "builder", "menu builder", "symfony2"],
