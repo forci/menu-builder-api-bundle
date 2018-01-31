@@ -3,3 +3,11 @@ forci_menu_builder_api_menu_get:
     defaults:
         _controller: ForciMenuBuilderApiBundle:Menu:get
         _format: json
+    requirements:
+        id: \d+
+
+forci_menu_builder_api_menu_get_multi:
+    path:        /{_locale}/get.json
+    defaults:
+        _controller: ForciMenuBuilderApiBundle:Menu:multiGet
+        _format: json
