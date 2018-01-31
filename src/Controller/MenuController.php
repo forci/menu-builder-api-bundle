@@ -4,8 +4,8 @@ namespace Forci\Bundle\MenuBuilderApi\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Forci\Bundle\MenuBuilderBundle\Entity\Menu;
-use Forci\Bundle\MenuBuilderBundle\Entity\MenuItem;
+use Forci\Bundle\MenuBuilder\Entity\Menu;
+use Forci\Bundle\MenuBuilder\Entity\MenuItem;
 
 class MenuController extends Controller {
 
