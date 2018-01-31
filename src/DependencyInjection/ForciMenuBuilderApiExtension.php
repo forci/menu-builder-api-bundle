@@ -1,6 +1,6 @@
 <?php
 
-namespace Forci\Bundle\MenuBuilderApiBundle\DependencyInjection;
+namespace Forci\Bundle\MenuBuilderApi\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;

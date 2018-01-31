@@ -1,6 +1,6 @@
 <?php
 
-namespace Forci\Bundle\MenuBuilderApiBundle\Controller;
+namespace Forci\Bundle\MenuBuilderApi\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
