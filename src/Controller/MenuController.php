@@ -2,15 +2,22 @@
 
 namespace Forci\Bundle\MenuBuilderApi\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Forci\Bundle\MenuBuilder\Entity\Menu;
 use Forci\Bundle\MenuBuilder\Entity\MenuItem;
+use Forci\Bundle\MenuBuilder\Manager\MenuManager;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
-class MenuController extends Controller {
+class MenuController extends AbstractController {
+
+    /** @var MenuManager */
+    private $menuManager;
+
+    /** @var string */
+    private $secret;
 
     public function multiGetAction(Request $request) {
-        if ($request->query->get('secret') != $this->container->getParameter('forci_menu_builder_api.secret')) {
+        if ($request->query->get('secret') !== $this->secret) {
             return $this->json([]);
         }
 
@@ -20,13 +27,11 @@ class MenuController extends Controller {
             return $this->json([]);
         }
 
-        $manager = $this->container->get('forci_menu_builder.manager.menus');
-
         $data = [];
 
         foreach ($ids as $id) {
             /** @var Menu $menu */
-            $menu = $manager->findOneById($id);
+            $menu = $this->menuManager->findOneById($id);
 
             if (!$menu) {
                 $data[$id] = [];
@@ -45,13 +50,11 @@ class MenuController extends Controller {
     }
 
     public function getAction($id, Request $request) {
-        if ($request->query->get('secret') != $this->container->getParameter('forci_menu_builder_api.secret')) {
+        if ($request->query->get('secret') !== $this->secret) {
             return $this->json([]);
         }
 
-        $manager = $this->container->get('forci_menu_builder.manager.menus');
-
-        $menu = $manager->findOneById($id);
+        $menu = $this->menuManager->findOneById($id);
 
         if (!$menu) {
             return $this->json([]);
@@ -68,7 +71,7 @@ class MenuController extends Controller {
 
     protected function fetchMenu(Menu $menu) {
         $data = [
-            'name'     => $menu->getName(),
+            'name' => $menu->getName(),
             'modified' => $menu->getDateModified()->format('U')
         ];
 
@@ -84,10 +87,9 @@ class MenuController extends Controller {
     }
 
     protected function fetchItem(MenuItem $item) {
-        $manager = $this->container->get('forci_menu_builder.manager.menus');
         $data = [
-            'name'     => $item->getName(),
-            'url'      => $manager->generateMenuItemUrl($item),
+            'name' => $item->getName(),
+            'url' => $this->menuManager->generateMenuItemUrl($item),
             'children' => []
         ];
         foreach ($item->getChildren() as $child) {

@@ -1,13 +1,13 @@
 forci_menu_builder_api_menu_get:
     path:        /{_locale}/{id}/get.json
+    controller: Forci\Bundle\MenuBuilderApi\Controller\MenuController:getAction
     defaults:
-        _controller: ForciMenuBuilderApiBundle:Menu:get
         _format: json
     requirements:
         id: \d+
 
 forci_menu_builder_api_menu_get_multi:
     path:        /{_locale}/get.json
+    controller: Forci\Bundle\MenuBuilderApi\Controller\MenuController:multiGetAction
     defaults:
-        _controller: ForciMenuBuilderApiBundle:Menu:multiGet
         _format: json
