@@ -16,6 +16,11 @@ class MenuController extends AbstractController {
     /** @var string */
     private $secret;
 
+    public function __construct(MenuManager $menuManager, string $secret) {
+        $this->menuManager = $menuManager;
+        $this->secret = $secret;
+    }
+
     public function multiGetAction(Request $request) {
         if ($request->query->get('secret') !== $this->secret) {
             return $this->json([]);
