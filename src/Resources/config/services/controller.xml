@@ -11,11 +11,6 @@
         </instanceof>
 
         <prototype namespace="Forci\Bundle\MenuBuilderApi\Controller\" resource="../../../Controller">
-            <bind key="$menuRepository" type="service" id="forci_menu_builder.repo.menus"/>
-            <bind key="$orderManager" type="service" id="forci_menu_builder_client.manager.order"/>
-            <bind key="$routeRepository" type="service" id="forci_menu_builder.repo.routes"/>
-            <bind key="$menuItemRepository" type="service" id="forci_menu_builder.repo.menus_items"/>
-
             <bind key="$menuManager" type="service" id="forci_menu_builder.manager.menus"/>
             <bind key="$secret">%forci_menu_builder_api.secret%</bind>
         </prototype>
